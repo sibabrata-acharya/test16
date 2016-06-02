@@ -78,7 +78,8 @@ Otp.prototype.generateOtp = function (app) {
             });
         } else if (config.channel === 'sendgrid') {
             //hooking the sendgrid to OTP
-            var sendmailObj = new require("./sendgridservice.js")();
+            var sendmail = require("./sendgridservice.js");
+            var sendmailObj = new sendmail();
             //creating the options for sendgrid
             var msgObj = {
                 "accountSID": config.sendgrid.accountSID,
